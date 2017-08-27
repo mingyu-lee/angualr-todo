@@ -6,6 +6,22 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--
+   ES6의 import 미지원 브라우저에서는 SystemJS를 이용해 ES6의 import 사용할 수 있도록 CDN으로 system.js 로드
+  <script src="https://unpkg.com/systemjs/dist/system.js"></script>
+  <script>
+    SystemJS.config({
+      baseURL : '/module',
+      transpiler: 'plugin-babel',
+      map : {
+        'plugin-babel': 'https://unpkg.com/systemjs-plugin-babel/plugin-babel.js',
+        // 브라우저에서 동적으로 컴파일 하도록 SystemJS에서의 babel build 설정을 브라우에서 하게끔 설정
+        'systemjs-babel-build': 'https://unpkg.com/systemjs-plugin-babel/systemjs-babel-browser.js'
+      }
+    })
+    SystemJS.import('main.js');
+  </script> -->
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
