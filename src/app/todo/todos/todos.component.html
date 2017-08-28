@@ -8,13 +8,12 @@
   <h2>5월 25일</h2>
 </div>
 <div>
-  <div>
-    <input type="checkbox">운동하기
-  </div>
-  <div>
-    <input type="checkbox">공부하기
+  <!--<div *ngFor="let todo of todos" (click)="todo.done != todo.done"> C ← DOM: (이벤트)=템플릿 문장 -->
+  <div *ngFor="let todo of todos" (click)="toggleTodo(todo)"> <!--C ← DOM: (이벤트)=템플릿 문장 -->
+    <input type="checkbox" [checked]="todo.done">{{ todo.text }} <!-- C → DOM: [속성]="템플릿 표현식" -->
   </div>
 </div>
 <div>
-  <input type="text" placeholder="할 일 추가">
+  <input type="text" placeholder="할 일 추가" [(ngModel)]="newText"> <!--양방향 데이터 바인딩 ngModel 지시자 -->
+  <button (click)="addTodo(newText)">Add</button>
 </div>

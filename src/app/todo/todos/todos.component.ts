@@ -7,9 +7,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosComponent implements OnInit {
 
-  constructor() { }
+  newText = '';
+  todos: {
+    done: boolean,
+    text: string
+  }[]; // 따로 클래스를 만들지 않고 TS에서 오브젝트 타입을 바로 선언
+
+  constructor() {
+    this.todos = [
+      { done: false, text: '운동하기' },
+      { done: true, text: '공부하기' },
+    ];
+  }
 
   ngOnInit() {
+  }
+
+  toggleTodo(todo) {
+    todo.done = !todo.done;
+  }
+
+  addTodo(newText: string) {
+    this.todos.push({
+      done: false,
+      text: newText
+    });
+    this.newText = '';
   }
 
 }
