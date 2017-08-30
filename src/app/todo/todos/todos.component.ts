@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Todo} from '../share/todo.model';
 // ES6의 Component, metadata
 @Component({
   selector: 'app-todos', // css 선택자처럼 사용 가능, 현재는 엘리먼트 이름이 app-todos인 DOM 요소를 선택
@@ -8,10 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class TodosComponent implements OnInit {
 
   newText = '';
-  todos: {
-    done: boolean,
-    text: string
-  }[]; // 따로 클래스를 만들지 않고 TS에서 오브젝트 타입을 바로 선언
+  todos: Todo[]; // 따로 클래스를 만들지 않고 TS에서 오브젝트 타입을 바로 선언
 
   constructor() {
     this.todos = [
@@ -27,12 +25,11 @@ export class TodosComponent implements OnInit {
     todo.done = !todo.done;
   }
 
-  addTodo(newText: string) {
+  addTodo(text: string) {
     this.todos.push({
       done: false,
-      text: newText
+      text: text
     });
-    this.newText = '';
   }
 
 }
